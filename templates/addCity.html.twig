@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter une ville{% endblock %}
+
+{% block body %}
+    <div class="block-page">
+        <h1 class="block-name">Ajouter une ville</h1>
+        {{ form_start(cityForm, {'attr': {'novalidate': 'novalidate'}}) }}
+        {{ form_widget(cityForm) }}
+        <div class="button">
+            <button class="btn-add">Ajouter</button>
+        </div>
+        {{ form_end(cityForm) }}
+    </div>
+{% endblock %}

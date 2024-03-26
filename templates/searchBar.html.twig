@@ -1,0 +1,33 @@
+<form class="d-flex" action="{{ path('restaurant_list') }}">
+    <input
+            type="search"
+            name="q"
+            value="{{ app.request.query.get('q') }}"
+            class="searchBar"
+            placeholder="Rechercher un restaurant...."
+            aria-label="Search">
+</form>
+
+<div class="sortForm">
+    <form method="GET" novalidate>
+        <h2></h2>
+        <div class="form-row">
+            <label for="city"></label><select id="city" name="city" class="form-control-sort">
+                    <option value="">Ville (toutes)</option>
+                    {% for city in cities %}
+                        <option value="{{ city.id }}">{{ city.name }}</option>
+                    {% endfor %}
+                </select>
+            <label for="food"></label><select id="food" name="food" class="form-control-sort">
+                    <option value="">Cuisine (toutes)</option>
+                    {% for food in foods %}
+                        <option value="{{ food.id }}">{{ food.name }}</option>
+                    {% endfor %}
+                </select>
+            <div class="col_submit">
+                <button type="submit" class="form-control-submit">Trier</button>
+            </div>
+        </div>
+        <h2></h2>
+    </form>
+</div>

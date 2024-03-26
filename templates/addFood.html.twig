@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un type de restauration{% endblock %}
+
+{% block body %}
+    <div class="block-page">
+        <h1 class="block-name">Ajouter un type de cuisine</h1>
+        {{ form_start(foodForm, {'attr': {'novalidate': 'novalidate'}}) }}
+        {{ form_widget(foodForm) }}
+        <div class="button">
+            <button class="btn-add">Ajouter</button>
+        </div>
+        {{ form_end(foodForm) }}
+        </div>
+{% endblock %}

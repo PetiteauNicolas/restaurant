@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}Resto_Verse{% endblock %}</title>
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Satisfy&display=swap" rel="stylesheet">
+{#
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+#}
+        {% block stylesheets %}{{ encore_entry_link_tags('app') }}{% endblock %}
+    </head>
+    <body>
+        <header>
+            {% include('navbar.html.twig') %}
+        </header>
+        <section>
+            <div>
+                {% block body %}{% endblock %}
+            </div>
+        </section>
+        <footer>
+            {% include('footer.html.twig') %}
+        </footer>
+    </body>
+    <script>
+        const menuHamburger = document.querySelector(".menu-hamburger")
+        const navLinks = document.querySelector(".nav-links")
+
+        menuHamburger.addEventListener('click', ()=> {
+            navLinks.classList.toggle('mobile-menu')
+        })
+    </script>
+    {% block javascripts %}{{ encore_entry_script_tags('app') }}{% endblock %}
+</html>

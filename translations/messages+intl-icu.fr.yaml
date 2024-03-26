@@ -1,0 +1,6 @@
+number_of_ratings: >-
+      {votes, plural,
+          =0    {Pas de vote}
+          =1    {# vote}
+          other {# votes}
+      }

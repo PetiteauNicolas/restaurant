@@ -1,0 +1,643 @@
+@import "custom";
+@import "~bootstrap/scss/bootstrap";
+
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+    list-style: none;
+}
+
+body {
+    background-color: #ffffff;
+    background-attachment: fixed;
+    font-size: 25px;
+    height: 100%;
+    width: 100%;
+}
+
+//LOGIN
+.login-block {
+    background-image: url("../images/background-home.jpeg");
+    height: 100%;
+    width: 100%;
+}
+
+.login-form {
+    background-color: rgba(0, 0, 0, 0.68);
+    position: absolute;
+    text-align: center;
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 5%;
+    border-radius: 5%;
+}
+
+.login-title {
+    font-size: 70px;
+    margin-bottom: 30px;
+    color: #bebebe;
+}
+
+.login {
+    margin-bottom: 10px;
+}
+
+.field-mail, .field-pass {
+    background-color: #f5f6f7;
+    border: 0.2px solid rgba(203, 195, 195, 0.47);
+    width: 600px;
+    height: 60px;
+    font-size: 18px;
+    border-radius: 5px;
+    padding-left: 10px;
+}
+
+.field-remember {
+    font-size: 20px;
+    color: #bebebe;
+}
+
+.field-lost {
+    font-size: 15px;
+    color: #bebebe;
+}
+
+.field-submit {
+    background-color: rgb(246, 169, 23);
+    border: 0.1px;
+    width: 600px;
+    height: 60px;
+    font-size: 20px;
+    border-radius: 5px;
+    padding-left: 10px;
+    color: #ffffff;
+}
+
+.login-or {
+    padding: 10px ;
+    background:url(http://lorempixel.com/800/500/nightlife/4) ;
+    background-size: cover;
+    margin:1em auto;
+}
+
+.field-or {
+    overflow:hidden;
+    font-size:20px;
+    color: #bebebe;
+    display: block;
+}
+
+.field-or:before, .field-or:after {
+    content:'';
+    width: 226px;
+    border-bottom: 0.2px solid #b4b3b3;
+    display:inline-block;
+    vertical-align:middle;
+}
+
+.field-or:before {
+    margin-left:-100%;
+    margin-right:10px
+}
+
+.field-or:after {
+    margin-right:-100%;
+    margin-left:10px;
+}
+
+.field-create-account {
+    background-color: #ffffff;
+    border: 0.2px solid rgba(96, 95, 95, 0.47);
+    padding-right: 125px;
+    padding-left: 125px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    width: 400px;
+    height: 40px;
+    font-size: 14px;
+    border-radius: 5px;
+    color: #626262;
+}
+//FIN-LOGIN
+
+//HEADER
+header {
+    height: 20vh;
+    width: 100%;
+    background-image: url("../images/background-header.jpeg");
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+.navbar {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.navbar a {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 25px;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    width: 200px;
+    height: 100%;
+    text-align: center;
+    align-items: center;
+    margin-left: 40px;
+    font-style: italic;
+}
+
+.navbar .nav-links ul {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    margin-top: 2.5vw;
+    margin-bottom: 2.5vw;
+}
+
+.navbar .nav-links ul li {
+    margin: 0 25px;
+}
+
+.navbar .nav-links ul li.active a {
+    color: #fd8700;
+    font-weight: bold;
+    font-size: 80px;
+    margin-right: 5px;
+    padding-bottom: 5px;
+    font-family: 'Permanent Marker', cursive;
+    font-family: 'Satisfy', cursive;
+    font-style: normal;
+}
+
+.navbar .menu-hamburger {
+    display: none;
+    position: absolute;
+    top: 50px;
+    right: 50px;
+    width: 75px;
+}
+//FIN-HEADER
+
+//HOME-PAGE
+.flash {
+    margin-top: 3vw;
+    padding: 20px;
+    font-weight: bold;
+    font-size: 1.4rem;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.flash-succes-add {
+    background-color: rgba(184, 241, 156, 0.63);
+    border: 0.5px solid green;
+    color: #00380d;
+}
+
+.flash-succes-update {
+    background-color: rgba(243, 220, 143, 0.58);
+    border: 0.5px solid orange;
+    color: #8d6600;
+}
+
+.flash-succes-delete {
+    background-color: rgba(236, 158, 158, 0.57);
+    border: 0.5px solid red;
+    color: #480000;
+}
+
+.sortForm .form-row {
+    margin-top: 35px;
+    margin-left: 5%;
+    margin-bottom: 15px;
+    display: flex;
+    width: 650px;
+}
+
+.form-control-sort {
+    width: 650px;
+    height: 50px;
+    border: 0.5px solid rgba(201, 200, 200, 0.84);
+    border-radius: 10px;
+    font-size: 18px;
+    color: rgb(38, 38, 38);
+    background-color: white;
+    padding-left: 10px;
+}
+
+.form-control-submit {
+    width: 75px;
+    height: 50px;
+    border: 0.5px solid rgba(201, 200, 200, 0.84);
+    border-radius: 10px;
+    font-size: 15px;
+    color: rgb(38, 38, 38);
+    background-color: white;
+}
+
+.searchBar {
+    border: 1px solid rgb(178, 169, 169);
+    width: 40vw;
+    height: 70px;
+    font-size: 25px;
+    padding-left: 40px;
+    margin-top: 50px;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 50px;
+    background: #ffffff;
+}
+
+.restaurant-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    grid-gap: 20px;
+    margin-bottom: 20px;
+    margin-left: 4vw;
+    margin-right: 4vw;
+}
+
+.list-one-restaurant {
+    display: flex;
+    justify-content: center;
+}
+
+.restaurant-food {
+    margin: 0;
+    font-weight: 400;
+    font-size: 25px;
+    color: #706969;
+    text-align: center;
+    border-bottom: 0.5px solid grey;
+}
+
+.already-done-img {
+    float: right;
+    margin-top: 10px;
+    height: 50px;
+    width: 50px;
+}
+
+.restaurant-name {
+    padding-top: 30px;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 35px;
+    line-height: 30px;
+    color: rgba(0, 0, 0, 0.8);
+    font-family: 'Permanent Marker', cursive;
+    font-family: 'Satisfy', cursive;
+}
+
+.restaurant-address {
+    padding-top: 30px;
+    color: rgba(0, 0, 0, 0.75);
+    font-size: 17px;
+    text-align: center;
+    font-weight: 700;
+    line-height: 18px;
+}
+
+.restaurant-description {
+    padding-top: 15px;
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 18px;
+    color: rgba(138, 134, 134, 0.94);
+    font-style: italic;
+    text-align: center;
+    padding-right: 5px;
+    padding-left: 5px;
+}
+
+.restaurant-price {
+    text-align: center;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.restaurant-average-rating {
+    font-size: 15px;
+}
+
+.allStar {
+    padding: 0;
+}
+
+.restaurant-rating {
+    text-align: center;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.restaurant-add-rating {
+    border-top: 1px solid grey;
+    margin-top: 10px;
+    margin-bottom:10px;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 20px;
+}
+
+.star {
+    height: 25px;
+    width: 25px;
+    text-align: center;
+    margin-top: 7px;
+    margin-left:7px;
+    margin-bottom: 7px;
+}
+
+.starRating {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+}
+
+.restaurant-phone-number {
+    font-size: 17px;
+    text-align: center;
+}
+
+.restaurant-website {
+    display: flex;
+    justify-content: center;
+    font-size: 17px;
+    color: black;
+}
+
+.card-button {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-evenly;
+    border: 1px solid grey;
+}
+
+.btn-random {
+    display: flex;
+    justify-content: center;
+}
+//FIN-HOME
+
+//FORMULAIRE
+.block-page {
+    margin-top: 50px;
+    margin-left: 15%;
+    margin-right: 15%;
+    margin-bottom: 150px;
+}
+
+.block-name {
+    padding-bottom: 15px;
+    padding-top: 15px;
+    margin-bottom: 75px;
+    text-align: center;
+    font-size: 60px;
+    border-top: 2px solid grey;
+    border-bottom: 2px solid grey;
+    font-family: 'Permanent Marker', cursive;
+    font-family: 'Satisfy', cursive;
+}
+
+.btn-add {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    width: 550px;
+    height: 75px;
+    border-radius: 50px;
+    background: #ffffff;
+    box-shadow:  5px 5px 8px #a8a8a8,
+    -5px -5px 8px #ffffff;
+    border: none;
+}
+
+.btn-add:hover {
+    box-shadow: inset 7px 7px 14px #b8b8b8,
+    inset -7px -7px 14px #ffffff;
+    color: black;
+}
+
+.button-rating {
+    display: flex;
+    justify-content: center;
+}
+
+.btn-add-rating {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    width: 120px;
+    height: 45px;
+    border: 1px solid gray;
+    border-radius: 50px;
+    background: #ffffff;
+    font-size: 15px;
+}
+
+.form-redirect {
+    display: flow-root;
+    font-size: 15px;
+    text-align: center;
+}
+//FIN-FORMULAIRE
+
+//PROFIL
+.profil-name {
+    font-size: 50px;
+    font-family: 'Permanent Marker', cursive;
+    font-family: 'Satisfy', cursive;
+    display: flex;
+    justify-content: center;
+}
+
+.button {
+    margin-top: 3vw;
+    display: flex;
+    justify-content: center;
+}
+
+.btn-profil-update {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    margin-right: 50px;
+    width: 250px;
+    height: 75px;
+    border-radius: 50px;
+    border: 1px solid #b6b2b2;
+    background-color: rgba(200, 229, 183, 0.8);
+}
+
+.btn-profil-delete {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    width: 250px;
+    height: 75px;
+    border-radius: 50px;
+    border: 1px solid #b6b2b2;
+    background-color: #fce1e1;
+}
+
+.btn-profil-logout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    width: 550px;
+    height: 75px;
+    border-radius: 50px;
+    background: #ffffff;
+    border: 1px solid #b6b2b2;
+}
+//FIN-PROFIL
+
+//ERROR PAGE
+.error {
+    flex-direction: column;
+    text-align: center;
+    margin-top: 100px;
+}
+
+.error-title {
+    font-size: 300px;
+}
+//FIN ERROR PAGE
+
+//FOOTER
+footer {
+    padding-bottom: 3%;
+}
+//FIN FOOTER
+
+//MEDIA QUERIES
+@media screen and (max-width: 1270px) {
+    .login-block {
+        background-image: url("../images/background-header-home-responsive.jpeg");
+        height: 100%;
+        width: 100%;
+    }
+    header {
+        height: 20vh;
+        width: 100vw;
+        background-image: url("../images/background-header-responsive.jpeg");
+        background-size: cover;
+    }
+
+    .navbar .nav-links ul {
+        display: flex;
+        align-items: center;
+        padding-top: 30%;
+    }
+
+    .navbar a {
+        color: #ffffff;
+    }
+
+    .navbar .logo {
+        position: absolute;
+        top: 50px;
+        left: 50px;
+    }
+
+    .navbar .menu-hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        top: 0;
+        left: 0;
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.66);
+        backdrop-filter: blur(8px);
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-left: -100%;
+        transition: all 0.2s ease;
+        z-index: 1;
+    }
+
+    .mobile-menu.mobile-menu {
+        margin-left: 0;
+    }
+
+    .nav-links ul {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar .nav-links ul li {
+        margin: 25px 0;
+        font-size: 1.2em;
+    }
+
+    .navbar .nav-links ul li.active a {
+        margin-right: 0px;
+    }
+
+    .searchBar {
+        width: 600px;
+    }
+
+    .block-page {
+        font-size: 35px;
+        margin-right: 3%;
+        margin-left: 3%;
+    }
+
+    .form-control {
+        font-size: 35px;
+        width: 100%;
+    }
+
+    .form-select {
+        font-size: 35px;
+        width: 100%;
+    }
+
+    .form-label {
+        margin-top: 30px;
+    }
+
+    .form-redirect {
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 1030px) {
+    .restaurant-list {
+        margin-left: 50px;
+        margin-right: 50px;
+    }
+
+    .header-home {
+        height: 100px ;
+    }
+
+    .block-nav {
+        height: 320px;
+    }
+    .sortForm {
+        margin-left:3.5%;
+    }
+}
+//FIN MEDIA QUERIES

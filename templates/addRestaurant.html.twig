@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajouter un restaurant{% endblock %}
+
+{% block body %}
+    <div class="block-page">
+        <h1 class="block-name">Ajouter un restaurant</h1>
+        {{ form_start(restaurantForm, {'attr': {'novalidate': 'novalidate'}}) }}
+        {{ form_row(restaurantForm.name) }}
+        {{ form_row(restaurantForm.address) }}
+        {{ form_row(restaurantForm.description) }}
+        {{ form_row(restaurantForm.price) }}
+        {{ form_row(restaurantForm.website) }}
+        {{ form_row(restaurantForm.already_done) }}
+        {{ form_row(restaurantForm.food) }}
+        <div>
+            <a class="form-redirect" href="{{ path('food_add') }}">Ajouter un type de cuisine</a>
+        </div>
+        {{ form_row(restaurantForm.city) }}
+        <div>
+            <a class="form-redirect" href="{{ path('city_add') }}">Ajouter une ville</a>
+        </div>
+        {{ form_row(restaurantForm.phoneNumber) }}
+        {{ form_row(restaurantForm.picture) }}
+        <div class="button">
+            <button class="btn-add">Ajouter</button>
+        </div>
+        {{ form_end(restaurantForm) }}
+    </div>
+{% endblock %}
+

@@ -1,0 +1,52 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Notation{% endblock %}
+
+{% block body %}
+<div class="block-page">
+    <h1 class="block-name">Noter le restaurant</h1>
+    <div class="list-one-restaurant">
+        <section class="restaurant-list">
+            <div class="card">
+                <img src="{{ asset('uploads/pictures/' ~ restaurant.picture) }}" class="card-top" alt="">
+                <div class="card-body">
+                    {% for i in restaurant.getFood %}
+                        <div class="restaurant-food">{{ i.name }}</div>
+                    {% endfor %}
+                    <div class="restaurant-name"> {{ restaurant.name }} </div>
+                    <address class="restaurant-address">{{ restaurant.address }}, {{ restaurant.city }} </address>
+                    <p class="restaurant-description">{{ restaurant.description }} </p>
+                    <div class="restaurant-price">Prix moyen: {{ restaurant.price }}€ </div>
+                    <div class="restaurant-rating">
+                        {% if restaurant.ratings|length != null %}
+                            {% for i in 0..4 %}
+                                {% if i<restaurant.averageRatings %}
+                                    <img src="{{ asset('build/images/goodStar.png') }}" class="star" alt="">
+                                {% else %}
+                                    <img src="{{ asset('build/images/badStar.png') }}" class="star" alt="">
+                                {% endif %}
+                            {% endfor %}
+                        {% endif %}
+                        <div class="restaurant-average-rating">{{ restaurant.averageRatings }}</div>
+                        <div class="restaurant-average-rating">{{ 'number_of_ratings'|trans({votes: restaurant.ratings|length}) }}</div>
+                        <div class="restaurant-add-rating">
+                            <h2>{{ form_start(ratingForm, {'attr': {'novalidate': 'novalidate'}}) }}</h2>
+                            <h2>{{ form_widget(ratingForm) }}</h2>
+                            <div class="button-rating">
+                                <button class="btn-add-rating">Noter</button>
+                            </div>
+                            <h2>{{ form_end(ratingForm) }}</h2>
+                        </div>
+                    </div>
+                    <div class="restaurant-phone-number">{{ restaurant.phoneNumber }}</div>
+                    <a class="restaurant-website">{{ restaurant.website }} </a>
+                    <div class="card-button">
+                        <a href="{{ path('restaurant_update', {'id':restaurant.id}) }}" class="btn btn-default">Modifier</a>
+                        <a href="{{ path('restaurant_delete', {'id':restaurant.id}) }}" class="btn btn-default">Supprimer</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+{% endblock  %}

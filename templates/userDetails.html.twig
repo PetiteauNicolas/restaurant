@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Mon profil{% endblock %}
+
+{% block body %}
+    <div class="block-page">
+        <h1 class="block-name">Mon profil</h1>
+        <h2 class="profil-name">{{user.email }}</h2>
+        <div class="button">
+            <a href="{{ path('user_update', {'id':user.id}) }}" class="btn-profil-update">Modifier</a>
+            <a href="{{ path('user_delete', {'id':user.id}) }}" class="btn-profil-delete">Supprimer</a>
+        </div>
+        <div class="button">
+            <a href="{{ path('app_logout') }}" class="btn-profil-logout">Se déconnecter</a>
+        </div>
+    </div>
+{% endblock %}
+

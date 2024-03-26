@@ -1,0 +1,28 @@
+<nav class="navbar">
+    <div class="nav-links">
+        <ul>
+            <li class="active">
+                <a class="header_home" href="{{ path('restaurant_list') }}" >Accueil</a>
+            </li>
+            <li class="" >
+                <a class="" href="{{ path('restaurant_add') }}">Ajouter un restaurant</a>
+            </li>
+            <li class="">
+                <a class="" href="{{ path('restaurant_random') }}">Me proposer un restaurant</a>
+            </li>
+
+            {% if is_granted ('IS_AUTHENTICATED_FULLY')  %}
+                <li class="">
+                    <a class="" href="{{ path('user_details', {'id':app.user.id}) }}">Profil</a>
+                </li>
+            {% else %}
+
+                <li>
+                    <a class="" href="{{ path('user_add') }}">Se créer un compte</a>
+                </li>
+            {% endif %}
+
+        </ul>
+    </div>
+    <img src="{{ asset('build/images/menu_burger.png') }}" class="menu-hamburger" alt="menu hamburger">
+</nav>

@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Se créer un compte{% endblock %}
+
+{% block body %}
+    <div class="block-page">
+        <h1 class="block-name">Se créer un compte</h1>
+        {{ form_start(userForm, {'attr': {'novalidate': 'novalidate'}}) }}
+        {{ form_widget(userForm) }}
+        <div class="button">
+            <button class="btn-add">Ajouter</button>
+        </div>
+        {{ form_end(userForm) }}
+    </div>
+{% endblock %}
+

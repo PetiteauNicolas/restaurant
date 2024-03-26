@@ -1,0 +1,70 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Accueil{% endblock %}
+
+{% block body %}
+{% for label, messages in app.flashes %}
+        {% for message in messages %}
+            <div class="flash flash-{{ label }}">
+                {{ message }}
+            </div>
+        {% endfor%}
+    {% endfor %}
+    {% include('searchBar.html.twig') %}
+    <div class="list-one-restaurant">
+        <section class="restaurant-list">
+            {% for restaurant in restaurants %}
+                <div class="card">
+                    <img src="{{ asset('uploads/pictures/' ~ restaurant.picture) }}" class="card-top" alt="">
+                    <div class="card-body">
+                        {% if restaurant.alreadyDone == true  %}
+                            <img src="{{ asset('build/images/alreadyDone.png') }}" class="already-done-img" alt="">
+                        {% endif %}
+                        {% for i in restaurant.food %}
+                           <div class="restaurant-food">{{ i.name }}</div>
+                        {% endfor %}
+                        <div class="restaurant-name"> {{ restaurant.name }} </div>
+                        <address class="restaurant-address">{{ restaurant.address }}, {{ restaurant.city }} </address>
+                        <p class="restaurant-description">{{ restaurant.description }} </p>
+                        {% if restaurant.price != null %}
+                            <div class="restaurant-price">Prix moyen: {{ restaurant.price }}€ </div>
+                        {% endif %}
+                        <div class="restaurant-rating">
+                            {% if restaurant.ratings|length != null %}
+                                {% for i in 0..4 %}
+                                    {% if i<restaurant.averageRatings %}
+                                        <img src="{{ asset('build/images/goodStar.png') }}" class="star" alt="">
+                                    {% else %}
+                                        <img src="{{ asset('build/images/badStar.png') }}" class="star" alt="">
+                                    {% endif %}
+                                {% endfor %}
+                            {% endif %}
+                        <div class="restaurant-average-rating">{{ restaurant.averageRatings }}</div>
+                        <div class="restaurant-average-rating">{{ 'number_of_ratings'|trans({votes: restaurant.ratings|length}) }}</div>
+                            <div class="restaurant-add-rating">
+                                {% set hasRated = false %}
+                                {% for i in restaurant.ratings %}
+                                    {% if i.users == app.user %}
+                                        {% set hasRated = true %}
+                                        <a href="{{ path('rating_update', {'id':restaurant.id}) }}">Modifier sa note</a>
+                                    {% endif %}
+                                {% endfor %}
+                                {% if not hasRated %}
+                                    <a href="{{ path('rating_add', {'id': restaurant.id}) }}">Noter le restaurant</a>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="restaurant-phone-number">{{ restaurant.phoneNumber }}</div>
+                        <a class="restaurant-website" href="{{ restaurant.website }}"> {{ restaurant.website }} </a>
+                        <div class="card-button">
+                            <a href="{{ path('restaurant_update', {'id':restaurant.id}) }}" class="btn btn-default">Modifier</a>
+                            <a href="{{ path('restaurant_delete', {'id':restaurant.id}) }}" class="btn btn-default">Supprimer</a>
+                        </div>
+                        <div>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </section>
+    </div>
+{% endblock  %}

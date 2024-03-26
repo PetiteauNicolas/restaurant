@@ -1,0 +1,45 @@
+
+{% block title %} <title>S'identifier</title>{% endblock %}
+{% block stylesheets %}{{ encore_entry_link_tags('app') }}{% endblock %}
+
+{% block body %}
+    <div class="login-block">
+        <div class="login-form">
+            <form class="" action="{{ path('app_login') }}" method="post">
+                <div>
+                    <h1 class="login-title">Connexion</h1>
+                </div>
+                {% if error %}
+                    <div class="alert alert-danger" role="alert">
+                        L'identifiant ou le mot de passe que vous avez saisi est incorrect. <a href="{{ path('app_forgot_password_request') }}" class="alert-link"></a>
+                    </div>
+                {% endif %}
+                <div class="login">
+                    <input class="field-mail" type="text" id="username" name="_username" value="{{ last_username }}" placeholder="E-mail">
+                </div>
+                <div class="login">
+                    <input class="field-pass" type="password" id="password" name="_password" placeholder="Mot de passe">
+                </div>
+                <div class="login">
+                    <label class="field-remember">Se souvenir de moi</label>
+                    <input type="checkbox" name="_remember_me" checked/>
+                </div>
+                <div class="login">
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+                    <button class="field-submit" type="submit" >Se connecter</button>
+                </div>
+                <div class="login">
+                    <a class="field-lost" href="{{ path('app_forgot_password_request') }}">Mot de passe oublié ?</a>
+                </div>
+                <div class="login-or">
+                    <label class="field-or">Ou</label>
+                </div>
+                <div class="login">
+                    <a class="field-create-account" href="{{ path('user_add') }}">Créer un compte</a>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock %}
+
+

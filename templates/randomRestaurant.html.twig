@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Restaurant aléatoire{% endblock %}
+
+{% block body %}
+<div class="block-page">
+    <h1 class="block-name">Restaurant aléatoire</h1>
+    <div class="list-one-restaurant">
+        <section class="restaurant-list">
+            {% for result in results %}
+                <div class="card">
+                    <img src="{{ asset('uploads/pictures/' ~ result.picture) }}" class="card-top" alt="">
+                    <div class="card-body">
+                        {% if result.alreadyDone == true  %}
+                            <img src="{{ asset('build/images/alreadyDone.png') }}" class="already-done-img" alt="">
+                        {% endif %}
+                        {% for i in result.getFood %}
+                            <div class="restaurant-food">{{ i.name }}</div>
+                        {% endfor %}
+                        <div class="restaurant-name"> {{ result.name }} </div>
+                        <address class="restaurant-address">{{ result.address }}, {{ result.city }} </address>
+                        <p class="restaurant-description">{{ result.description }} </p>
+                        <div class="restaurant-price">Prix moyen: {{ result.price }}€ </div>
+                        <div class="restaurant-rating">
+                            {% for i in 0..4 %}
+                                {% if i<result.averageRatings %}
+                                    <img src="{{ asset('build/images/goodStar.png') }}" class="star" alt="">
+                                {% else %}
+                                    <img src="{{ asset('build/images/badStar.png') }}" class="star" alt="">
+                                {% endif %}
+                            {% endfor %}
+                            <div>{{ result.ratings|length }} votes</div>
+                            <div class="restaurant-add-rating">
+                                <a href="{{ path('rating_add', {'id': result.id}) }}">Noter le restaurant</a>
+                            </div>
+                        </div>
+                        <div class="restaurant-phone-number">{{ result.phoneNumber }}</div>
+                        <a class="restaurant-website"> {{ result.website }} </a>
+                        <div class="card-button">
+                            <a href="{{ path('restaurant_update', {'id':result.id}) }}" class="btn btn-default">Modifier</a>
+                            <a href="{{ path('restaurant_delete', {'id':result.id}) }}" class="btn btn-default">Supprimer</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </section>
+    </div>
+    <a class="btn-random" href="{{ path('restaurant_random') }}">Générer à nouveau</a>
+</div>
+{% endblock  %}
